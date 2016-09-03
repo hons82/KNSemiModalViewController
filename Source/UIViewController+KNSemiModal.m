@@ -20,6 +20,7 @@ const struct KNSemiModalOption KNSemiModalOptionKeys = {
 	.transitionStyle         = @"KNSemiModalTransitionStyle",
     .disableCancel           = @"KNSemiModalOptionDisableCancel",
     .backgroundView          = @"KNSemiModelOptionBackgroundView",
+    .disableRotation         = @"KNSemiModalOptionDisableRotation",
 };
 
 #define kSemiModalViewController           @"PaPQC93kjgzUanz"
@@ -75,6 +76,7 @@ const struct KNSemiModalOption KNSemiModalOptionKeys = {
      KNSemiModalOptionKeys.shadowOpacity : @(0.8),
      KNSemiModalOptionKeys.transitionStyle : @(KNSemiModalTransitionStyleSlideUp),
      KNSemiModalOptionKeys.disableCancel : @(NO),
+     KNSemiModalOptionKeys.disableRotation : @(NO),
 	 }];
 }
 
@@ -128,8 +130,10 @@ const struct KNSemiModalOption KNSemiModalOptionKeys = {
 }
 
 -(void)kn_interfaceOrientationDidChange:(NSNotification*)notification {
-	UIView *overlay = [[self parentTarget] viewWithTag:kSemiModalOverlayTag];
-	[self kn_addOrUpdateParentScreenshotInView:overlay];
+    if(![[[self kn_targetToStoreValues] ym_optionOrDefaultForKey:KNSemiModalOptionKeys.disableRotation] boolValue]) {
+        UIView *overlay = [[self parentTarget] viewWithTag:kSemiModalOverlayTag];
+        [self kn_addOrUpdateParentScreenshotInView:overlay];
+    }
 }
 
 -(UIImageView*)kn_addOrUpdateParentScreenshotInView:(UIView*)screenshotContainer {
