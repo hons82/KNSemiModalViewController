@@ -28,11 +28,10 @@
   resizeButton.layer.masksToBounds  = YES;
 }
 
-- (void)viewDidUnload {
+- (void)dealloc {
   [self setHelpLabel:nil];
   [self setDismissButton:nil];
   [self setResizeButton:nil];
-  [super viewDidUnload];
 }
 
 - (IBAction)dismissButtonDidTouch:(id)sender {

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         =  'KNSemiModalViewController_hons82'
-  s.version      =  '0.4.5'
+  s.version      =  '0.4.6'
   s.license      =  { :type => 'MIT',
                       :text => <<-LICENSE
                         UIViewController+KNSemiModal is licensed under MIT License
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.homepage     =  'https://github.com/hons82/KNSemiModalViewController'
   s.author       =  { 'Kent Nguyen' => 'nguyen.dmz@gmail.com', 'Oleg Poyaganov' => 'opedge@gmail.com' }
   s.source       =  { :git => 'https://github.com/hons82/KNSemiModalViewController.git', :tag => "#{s.version}" }
-  s.platform     =  :ios
+  s.platform     =  :ios, '8.0'
   s.source_files =  'Source'
 
   s.requires_arc =  true
